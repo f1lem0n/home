@@ -1,0 +1,11 @@
+# ls aliases
+alias ll='ls -l'
+alias la='ls -la'
+
+# ssh aliases
+alias jpy-celsius='ssh -NfL localhost:8889:localhost:8889 b2-11@mol058.mol.uj.edu.pl'
+alias celsius='sshpass -p"SHER4O" ssh b2-11@mol058.mol.uj.edu.pl'
+
+# change dirs
+# alias git="git -c include.path $HOME/.dotfiles/.gitconfig"
+alias wget="wget --hsts-file $HOME/.dotfiles/wget-hsts"

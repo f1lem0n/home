@@ -1,0 +1,2 @@
+#!/bin/bash
+pandoc --filter pandoc-citeproc $1 -o $2

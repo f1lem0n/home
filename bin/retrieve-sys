@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# ONLY RUN THIS SCRIPT ON A BRAND NEW SYSTEM
+
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install -y \
+    htop            \
+    neofetch        \
+    timeshift       \
+    firefox         \
+    etckeeper       \
+
+cd
+git init
+git remote add origin git@github.com:f1lem0n/sys
+git pull
+
+mkdir $HOME/Git
+git clone git@github:f1lem0n/DOCUMENTS $HOME/Documents
+
+wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+sh Anaconda3-2022.10-Linux-x86_64.sh
+conda update conda

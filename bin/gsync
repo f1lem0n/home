@@ -1,0 +1,59 @@
+#!/bin/bash
+
+
+function init {
+        cd $i;
+        cd ..;
+        git config pull.rebase false;
+}
+
+
+function puller {
+    echo "Pulling:";
+    pwd;
+    git pull origin autocommit;
+    echo ""
+}
+
+function pusher {
+        echo "Pushing:";
+        pwd;
+        git push --set-upstream origin autocommit;
+        echo ""
+}
+
+if [ $# -eq 0 ]; then
+    for i in $(find ~ -name ".git" ! \( -path "*/.vim/*" -o -path "*/.local/*" \))
+    do
+        init
+        puller
+        pusher
+    done
+
+elif [ $1 == '--pull' ]; then
+    for i in $(find ~ -name ".git" ! \( -path "*/.vim/*" -o -path "*/.local/*" \))
+    do
+        init
+        puller
+    done
+
+elif [ $1 == '--push' ]; then
+    for i in $(find ~ -name ".git" ! \( -path "*/.vim/*" -o -path "*/.local/*" \))
+    do
+        init
+        pusher
+    done
+
+elif [ $1 == '--autocommit' ] | [ $1 == '-a' ]; then
+    for i in $(find ~ -name ".git" ! \( -path "*/.vim/*" -o -path "*/.local/*" \))
+    do
+        init
+        git branch autocommit
+        git checkout autocommit
+        puller
+        git add .
+        git commit -m'autocommit'
+        echo ""
+        pusher
+    done
+fi

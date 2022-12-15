@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir $1
+cd $1
+mkdir img
+touch ref.bib
+vi $1.tex
+

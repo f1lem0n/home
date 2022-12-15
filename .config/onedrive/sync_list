@@ -1,0 +1,13 @@
+SCHOOL/MGR
+!*.mp4
+!*.mkv
+!*.ods
+!*.xlsx
+!*.sta
+!*.SPF
+!*.stw
+!*.docx
+!*.pptx
+!*.stg
+!*:Zone.Identifier
+!*aux*

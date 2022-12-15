@@ -1,0 +1,11 @@
+#!/bin/bash
+
+ID=$(xinput list | grep "Touchpad" | grep "id=[0-9]*" -o | grep "[0-9]*" -o)
+
+if [ $# -eq 0 ]; then
+    echo "Wrong input! Usage: tp <on/off>"
+elif [ $1 == "on" ]; then
+	xinput set-prop $ID "Device Enabled" 1
+elif [ $1 == "off" ]; then
+	xinput set-prop $ID "Device Enabled" 0
+fi
