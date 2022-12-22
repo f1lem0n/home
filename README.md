@@ -22,8 +22,8 @@ sudo apt install git -y
 cd
 git init
 git remote add origin git@github.com:f1lem0n/sys.git
-git pull
+git pull origin main
 ```
 
-**CAUTION:** only run `retrieve-sys` on a new system, this script
+**CAUTION:** Only run `retrieve-sys` on a new system. This script
 makes changes to the filesystem and may result in files corruption!
