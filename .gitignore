@@ -4,7 +4,7 @@
 
 !.gitignore
 !/.config/
-!.profile
 !/Workspace
 !.bash_logout
+!.bashrc
 !/bin/
