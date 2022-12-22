@@ -16,23 +16,9 @@ fi
 
 # Installing/uninstalling the desired packages
 sudo apt update -y && sudo apt upgrade -y
-sudo apt install -y                     \
-    htop                                \
-    neofetch                            \
-    timeshift                           \
-    firefox                             \
-    etckeeper                           \
-    pandoc                              \
-    inkscape                            \
-    texlive-full                        \
-    fzf                                 \
-    onedrive                            \
-    ripgrep                             \
-    silversearcher-ag                   \
-    tree
+sudo apt install -y $(cat $HOME/bin/config/pckg.list)
 
-sudo apt remove -y                      \
-    vi
+sudo apt remove -y vi
 
 # Cleanup
 cd
@@ -45,15 +31,15 @@ rm -rf                                  \
 echo
 echo "GENERATING SSH-RSA KEY."
 read -p "Type in your email: " EMAIL
-ssh-keygen -t rsa -C "$EMAIL" -f $HOME/.ssh/id_rsa -q -N ""
+ssh-keygen -t rsa -C "$EMAIL" -f $HOME/.ssh/id_rsa -q
 echo
 echo "Copy this key into your github account:"
 echo
 cat $HOME/.ssh/id_rsa.pub
 echo
-read -p "Do you wish to continue? [y/N]: " CONTARG
+read -p "Do you wish to continue? [y/N]: " RUNARG
 
-if [ ! -z $CONTARG ] && [[ "$CONTARG" =~ ^(y|Y|yes|YES|Yes)$ ]]; then
+if [ ! -z $RUNARG ] && [[ "$RUNARG" =~ ^(y|Y|yes|YES|Yes)$ ]]; then
     :
 else
     echo "Abandoning."

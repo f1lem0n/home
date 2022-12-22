@@ -1,7 +1,0 @@
-# ls aliases
-alias ll='ls -l'
-alias la='ls -lA'
-
-# change dirs
-# alias git="git -c include.path $HOME/.dotfiles/.gitconfig"
-alias wget="wget --hsts-file $HOME/.dotfiles/wget-hsts"
