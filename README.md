@@ -1,4 +1,4 @@
-# Sys
+# sys
 
 This is to easily retrieve my debian system with all of its settings.
 
