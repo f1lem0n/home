@@ -1,6 +1,7 @@
 /*
 /.config/nvim
 /.config/ssh
+
 !.gitignore
 !/.config/
 !/Workspace
