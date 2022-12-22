@@ -117,3 +117,7 @@ unset __conda_setup
 if [ -f "$HOME/.config/bash/bash_aliases" ]; then
     . "$HOME/.config/bash/bash_aliases"
 fi
+
+if [ -d "$HOME/bin" ]; then
+    PATH="$PATH:$HOME/bin"
+fi
