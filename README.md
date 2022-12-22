@@ -14,3 +14,16 @@ sudo whoami
 ```
 
 The last line should output `root` if you have sudo rights.
+
+After setting your user as a sudoer you can run the following lines:
+
+```bash
+sudo apt install git -y
+cd
+git init
+git remote add origin git@github.com:f1lem0n/sys.git
+git pull origin main
+```
+
+**CAUTION:** Only run `retrieve-sys` on a new system. This script
+makes changes to the filesystem and may result in files corruption!

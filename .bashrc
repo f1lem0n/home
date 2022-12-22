@@ -118,6 +118,7 @@ if [ -f "$HOME/.config/bash/bash_aliases" ]; then
     . "$HOME/.config/bash/bash_aliases"
 fi
 
+# enable user's private bin
 if [ -d "$HOME/bin" ]; then
     PATH="$PATH:$HOME/bin"
 fi
