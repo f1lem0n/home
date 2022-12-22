@@ -1,43 +1,61 @@
 #!/bin/bash
 
-# ONLY RUN THIS SCRIPT ON A BRAND NEW SYSTEM
+# initialization
+echo
+echo "ONLY RUN THIS SCRIPT ON A BRAND NEW SYSTEM."
+echo "RUNNING IT MAY CORRUPT YOUR SYSTEM FILES!"
+echo
+read -p "Are you sure you want to run this script? [yes/NO]: " RUNARG
 
-# Installing/uninstalling the desired packages
-sudo apt update -y && sudo apt upgrade -y
-sudo apt install -y                     \
-    htop                                \
-    neofetch                            \
-    timeshift                           \
-    firefox                             \
-    etckeeper                           \
-    pandoc                              \
-    inkscape                            \
-    texlive-full                        \
-    fzf                                 \
-    onedrive                            \
-    ripgrep                             \
-    silversearcher-ag                   \
-    tree
+if [ ! -z $RUNARG ] && [[ "$RUNARG" =~ ^(y|Y|yes|YES|Yes)$ ]]; then
 
-sudo apt remove -y                      \
-    vi
+    # Installing/uninstalling the desired packages
+    sudo apt update -y && sudo apt upgrade -y
+    sudo apt install -y                     \
+        htop                                \
+        neofetch                            \
+        timeshift                           \
+        firefox                             \
+        etckeeper                           \
+        pandoc                              \
+        inkscape                            \
+        texlive-full                        \
+        fzf                                 \
+        onedrive                            \
+        ripgrep                             \
+        silversearcher-ag                   \
+        tree
 
-# Retrieving sys repo
-cd
-git init
-git remote add origin git@github.com:f1lem0n/sys
-git pull
+    sudo apt remove -y                      \
+        vi
+    # Cleanup
+    cd
+    rm -rf                                  \
+        .profile                            \
+        .bashrc                             \
 
-# Retrieving other repos
-mkdir $HOME/Git
-git clone git@github:f1lem0n/tutorials $HOME/Git/tutorials
-git clone git@github:f1lem0n/Documents $HOME/Documents
 
-# Installing conda
-wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
-sh Anaconda3-2022.10-Linux-x86_64.sh
-conda update conda
+    # Retrieving sys repo
+    cd
+    git init
+    git remote add origin git@github.com:f1lem0n/sys
+    git pull
 
-# Installing my neovim build
-git clone https://github.com/f1lem0n/nvim.git $HOME/.config/nvim
-bash install $HOME/.config/nvim/install.sh
+    # Retrieving other repos
+    mkdir $HOME/Git
+    git clone git@github:f1lem0n/tutorials $HOME/Git/tutorials
+    git clone git@github:f1lem0n/Documents $HOME/Documents
+
+    # Installing conda
+    wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+    sh Anaconda3-2022.10-Linux-x86_64.sh
+    conda update conda
+    conda update --all
+
+    # Installing my neovim build
+    git clone https://github.com/f1lem0n/nvim.git $HOME/.config/nvim
+    bash install $HOME/.config/nvim/install.sh
+else
+    echo "Abandoning."
+    exit
+fi

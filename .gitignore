@@ -1,6 +1,8 @@
 /*
 /.config/nvim
 /.config/ssh
+
+!README.md
 !.gitignore
 !/.config/
 !.profile
