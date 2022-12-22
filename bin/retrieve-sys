@@ -5,7 +5,7 @@ echo
 echo "ONLY RUN THIS SCRIPT ON A BRAND NEW SYSTEM."
 echo "RUNNING IT MAY CORRUPT YOUR SYSTEM FILES!"
 echo
-read -p "Are you sure you want to run this script? [yes/NO]: " RUNARG
+read -p "Are you sure you want to run this script? [y/N]: " RUNARG
 
 if [ ! -z $RUNARG ] && [[ "$RUNARG" =~ ^(y|Y|yes|YES|Yes)$ ]]; then
 
@@ -28,12 +28,13 @@ if [ ! -z $RUNARG ] && [[ "$RUNARG" =~ ^(y|Y|yes|YES|Yes)$ ]]; then
 
     sudo apt remove -y                      \
         vi
+
     # Cleanup
     cd
     rm -rf                                  \
         .profile                            \
         .bashrc                             \
-
+        .bash_logout
 
     # Retrieving sys repo
     cd
