@@ -19,16 +19,16 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt install -y $(cat $HOME/bin/config/pckg.list)
 sudo apt remove -y vi
 
-# Etckeeper
-cd /etc
-sudo etckeeper init
-
 # Cleanup
 cd
-rm -rf                                  \
-    .profile                            \
-    .bashrc                             \
-    .bash_logout
+rm -rf .profile .bashrc .bash_logout
+mkdir $HOME/Git
+
+# Etckeeper
+git clone https://github.com/wertarbyte/etckeeper $HOME/Git
+cd $HOME/Git/etckeeper
+sudo make install
+cd /etc
 
 # Generating ssh key
 echo
@@ -54,7 +54,6 @@ else
 fi
 
 # Retrieving other frequently used repos
-mkdir $HOME/Git
 git clone git@github:f1lem0n/tutorials $HOME/Git/tutorials
 git clone git@github:f1lem0n/Documents $HOME/Documents
 
