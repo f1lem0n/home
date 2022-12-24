@@ -22,6 +22,7 @@ sudo apt install git -y
 cd
 git init
 git remote add origin https://github.com/f1lem0n/home
+rm .bashrc .profile .bash_logout
 git pull origin main
 ```
 
