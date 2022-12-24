@@ -29,6 +29,9 @@ cd $HOME/Git
 git clone https://github.com/wertarbyte/etckeeper
 cd $HOME/Git/etckeeper
 sudo make install
+cd /etc
+sudo git add .
+sudo git commit -m "init"
 
 # Reading name and email for subsequent setup
 read -p "Type in your full name: " NAME
@@ -58,7 +61,7 @@ fi
 
 # Setting home remote url as ssh
 cd
-git remote set-url origin git@github.com:f1lem0n/sys
+git remote set-url origin git@github.com:f1lem0n/home
 
 # Github global setup
 git config --global user.name "$NAME"

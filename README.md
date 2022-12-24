@@ -9,11 +9,10 @@ to replace arguments in < > for the relevant ones):
 ```bash
 su
 usermod -aG sudo <username>
-exit
-sudo whoami
+reboot
 ```
 
-The last line should output `root` if you have sudo rights.
+After reboot run `sudo whoami` and it should output `root` if you have sudo rights.
 
 After setting your user as a sudoer you can run the following lines:
 
