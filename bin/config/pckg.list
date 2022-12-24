@@ -1,5 +1,7 @@
 htop
+curl
 neofetch
+make
 timeshift
 firefox-esr
 etckeeper
@@ -9,3 +11,5 @@ texlive-full
 fzf
 onedrive
 tree
+firmware-iwlwifi
+keepassx
