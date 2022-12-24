@@ -1,4 +1,4 @@
-# sys
+# home
 
 This is to easily retrieve my debian system with all of its settings.
 
@@ -21,7 +21,7 @@ After setting your user as a sudoer you can run the following lines:
 sudo apt install git -y
 cd
 git init
-git remote add origin git@github.com:f1lem0n/sys.git
+git remote add origin https://github.com/f1lem0n/home
 git pull origin main
 ```
 
