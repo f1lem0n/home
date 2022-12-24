@@ -1,6 +1,6 @@
 # home
 
-This is to easily retrieve my debian system with all of its settings.
+This is to easily retrieve my $HOME.
 
 For some installations user is not in sudoers by default.
 If this is the then case run the following lines (remember
